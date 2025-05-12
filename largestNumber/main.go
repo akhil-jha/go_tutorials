@@ -14,14 +14,6 @@ func largestNumber(number1 int, number2 int, number3 int) int {
 		max_number = number3
 	}
 	return max_number
-
-	// if number1 > number2 && number1 > number3 {
-	// 	return number1
-	// } else if number2 > number1 && number2 > number3 {
-	// 	return number2
-	// } else {
-	// 	return number3
-	// }
 }
 
 func main() {
