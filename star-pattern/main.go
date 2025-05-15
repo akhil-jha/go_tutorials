@@ -1,0 +1,24 @@
+package main
+
+func main() {
+	var number = 5
+	// fmt.Println("Enter a number: ")
+	// fmt.Scan(&number)
+
+	/*
+		------------------------------------------------------------------------------------------
+		*
+		* *
+		* * *
+		* * * *
+
+		for i := 0; i < number; i++ {
+			for j := 0; j < i; j++ {
+				fmt.Printf("*")
+			}
+			fmt.Print("\n")
+		}
+
+	*/
+
+}
