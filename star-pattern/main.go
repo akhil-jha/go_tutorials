@@ -1,7 +1,12 @@
 package main
 
+import (
+	"fmt"
+	"strings"
+)
+
 func main() {
-	var number = 4
+	var number = 5
 	// fmt.Println("Enter a number: ")
 	// fmt.Scan(&number)
 
@@ -48,10 +53,10 @@ func main() {
 				print("\n")
 		}
 		------------------------------------------------------------------------------------------
-		****
-		 ****
-		  ****
 		   ****
+			****
+			 ****
+			  ****
 
 			for i := 0; i < number; i++ {
 				fmt.Printf("%s", strings.Repeat(" ", i))
@@ -60,5 +65,16 @@ func main() {
 				}
 				fmt.Printf("\n")
 			}
+		------------------------------------------------------------------------------------------
+
+		      *
+			 ***
+			*****
+		   *******
 	*/
+	for i := 0; i < number; i++ {
+		stars := 2*i + 1
+		spaces := number - i - 1
+		fmt.Printf("%s%s\n", strings.Repeat(" ", spaces), strings.Repeat("*", stars))
+	}
 }
