@@ -1,7 +1,7 @@
 package main
 
 func main() {
-	var number = 5
+	// var number = 5
 	// fmt.Println("Enter a number: ")
 	// fmt.Scan(&number)
 
