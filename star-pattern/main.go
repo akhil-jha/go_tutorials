@@ -1,10 +1,5 @@
 package main
 
-import (
-	"fmt"
-	"strings"
-)
-
 func main() {
 	var number = 5
 	// fmt.Println("Enter a number: ")
@@ -76,17 +71,5 @@ func main() {
 				fmt.Printf("%s%s\n", strings.Repeat(" ", spaces), strings.Repeat("*", stars))
 		}
 			------------------------------------------------------------------------------------------
-			 ***********
-			  *       *
-			   *     *
-		        *   *
-		         * *
-		          *
 	*/
-
-	for i := 0; i < number; i++ {
-		stars := 1
-		spaces := 1
-		fmt.Printf("%s%s\n", strings.Repeat(" ", spaces), strings.Repeat("*", stars))
-	}
 }
