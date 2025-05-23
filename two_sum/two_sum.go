@@ -44,17 +44,28 @@ func twoSum(nums []int, target int) []int {
 
 	for key, value := range nums {
 		compliment := target - value
+		visited[value] = key // because we want to return the key and track all the values visited.
 
-		if id, exists := visited[compliment]; exists {
-			return []int{id, key}
+		compliment_index, exists := visited[compliment]
+
+		// if visited[compliment] exists, it will return the value and bool(True in this case),
+		// else 0 and False.
+		// 0 becasue in Go 0 is return if nothing is found.
+		fmt.Println(visited)
+		// map[11:0]
+		// map[11:0 15:1]
+		// map[7:2 11:0 15:1]
+		// map[2:3 7:2 11:0 15:1]
+		// [3 2]
+		if exists {
+			return []int{key, compliment_index} //
 		}
-		visited[value] = key
 	}
 	return nil
 }
 
 func main() {
-	nums := []int{11, 9, 15, 7, 10, 8, 2}
+	nums := []int{11, 15, 7, 2}
 	target := 9
 	fmt.Println(twoSum(nums, target))
 }
