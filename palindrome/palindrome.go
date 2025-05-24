@@ -40,16 +40,17 @@ func isPalindrome(x int) bool {
 			x = x / 10
 			i++
 		}
-		/*
-			comparision loop here
-		*/
-		return true
-	} else {
-		return false
+
+		for i := 0; i < len(digitsArray)/2; i++ {
+			if digitsArray[i] != digitsArray[len(digitsArray)-i-1] {
+				return false
+			}
+		}
 	}
+	return true
 }
 
 func main() {
-	number := 121
+	number := 121212121
 	fmt.Println(isPalindrome(number))
 }
