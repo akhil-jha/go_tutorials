@@ -30,12 +30,21 @@ package main
 import "fmt"
 
 func climbStairs(n int) int {
-	return 0
+	step1 := 1
+	step2 := 2
 
+	if n == 1 {
+		return step1
+	}
+	if n == 2 {
+		return step2
+	} else {
+		return climbStairs(n-1) + climbStairs(n-2)
+	}
 }
 
 func main() {
-	number := 45
+	number := 20
 	result := climbStairs(number)
 
 	fmt.Println(result)
