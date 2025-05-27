@@ -70,7 +70,7 @@ func isValid(s string) bool {
 		}
 	}
 	if (round['(']+round[')']+square[']']+square[']']+curly['{']+curly['}'])%2 != 0 {
-		return false
+		return false // what is the input is "][][" ?
 	}
 	return true
 
