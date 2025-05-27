@@ -43,6 +43,40 @@ Constraints:
 
 package main
 
+import "fmt"
+
+func isValid(s string) bool {
+	round := map[rune]int{'(': 0, ')': 0}
+	square := map[rune]int{'[': 0, ']': 0}
+	curly := map[rune]int{'{': 0, '}': 0}
+	for _, value := range s {
+		if value == '(' {
+			round[value] += 1
+		}
+		if value == ')' {
+			round[value] += 1
+		}
+		if value == '[' {
+			square[value] += 1
+		}
+		if value == ']' {
+			square[value] += 1
+		}
+		if value == '{' {
+			curly[value] += 1
+		}
+		if value == '}' {
+			curly[value] += 1
+		}
+	}
+	if (round['(']+round[')']+square[']']+square[']']+curly['{']+curly['}'])%2 != 0 {
+		return false
+	}
+	return true
+
+}
+
 func main() {
-	//
+	myString := "()[]}{"
+	fmt.Println(isValid(myString))
 }
