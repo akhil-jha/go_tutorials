@@ -16,6 +16,10 @@ func (s *Stack) Pop() int {
 	return popped
 }
 
+func (s *Stack) Seek() int {
+	return s.item[len(s.item)-1]
+}
+
 func main() {
 	stack := Stack{}
 
@@ -26,5 +30,7 @@ func main() {
 	fmt.Println(stack)
 	stack.Pop()
 	fmt.Println(stack)
+
+	fmt.Println(stack.Seek())
 
 }
