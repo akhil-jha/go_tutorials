@@ -23,6 +23,8 @@ func (s *Stack) Seek() int {
 func main() {
 	stack := Stack{}
 
+	fmt.Println(stack)
+
 	stack.Push(20)
 	stack.Push(30)
 	stack.Push(90)
