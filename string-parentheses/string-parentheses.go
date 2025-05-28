@@ -43,6 +43,55 @@ Constraints:
 
 package main
 
+import "fmt"
+
+type Stack struct {
+	item []rune
+}
+
+func (s *Stack) Push(i rune) {
+	s.item = append(s.item, i)
+}
+
+func (s *Stack) Pop() {
+	s.item = s.item[:len(s.item)-1]
+}
+
+func (s *Stack) Seek() rune {
+	return s.item[len(s.item)-1]
+}
+
+func isValid(s string) bool {
+	stack := Stack{}
+
+	for _, value := range s {
+		if value == '(' || value == '{' || value == '[' {
+			stack.Push(value)
+		}
+		if value == ')' {
+			if len(stack.item) == 0 || stack.Seek() != '(' {
+				return false
+			}
+			stack.Pop()
+		}
+		if value == '}' {
+			if len(stack.item) == 0 || stack.Seek() != '{' {
+				return false
+			}
+			stack.Pop()
+		}
+		if value == ']' {
+			if len(stack.item) == 0 || stack.Seek() != '[' {
+				return false
+			}
+			stack.Pop()
+		}
+
+	}
+	return len(stack.item) == 0
+}
+
 func main() {
-	//
+	myString := "()[]}{"
+	fmt.Println(isValid(myString))
 }
