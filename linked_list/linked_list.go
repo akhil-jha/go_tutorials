@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type Node struct {
 	next *Node
@@ -29,7 +31,7 @@ func (linkedlist *LinkedList) Append(value int) {
 
 func (linkedlist *LinkedList) PrintLinkedList() {
 	ptr := linkedlist.head
-	for ptr == nil {
+	for ptr != nil {
 		fmt.Printf("%v", ptr.num)
 		ptr = ptr.next
 	}
@@ -84,14 +86,66 @@ func (linkedlist *LinkedList) DeletebyIndex(pos int) {
 	linkedlist.length--
 }
 
+func (linkedlist *LinkedList) Deletebyvalue(value int) {
+	getIndex := linkedlist.SearchbyValue(value)
+
+	if getIndex != -1 {
+		linkedlist.DeletebyIndex(getIndex)
+	}
+}
+
+func (linkedlist *LinkedList) SearchbyValue(value int) int {
+	if linkedlist.head == nil {
+		return -1
+	}
+	i := 0
+	ptr := linkedlist.head
+
+	for ptr != nil {
+		if ptr.num == value {
+			return i
+		} else {
+			ptr = ptr.next
+			i++
+		}
+	}
+	return -1
+}
+
 func main() {
-	l := LinkedList{}
-	l.Append(2)
-	l.Append(10)
-	l.Append(12)
-	l.Append(79)
-	l.PrintLinkedList()
-	fmt.Println("")
-	l.PrintLinkedList()
-	fmt.Printf("\n%v\n", l.length)
+	ll := &LinkedList{}
+
+	ll.Append(10)
+	ll.Append(20)
+	ll.Append(30)
+	fmt.Print("After appending 10, 20, 30: ")
+	ll.PrintLinkedList()
+	fmt.Println()
+
+	ll.InsertAt(15, 1)
+	fmt.Print("After inserting 15 at index 1: ")
+	ll.PrintLinkedList()
+	fmt.Println()
+
+	index := ll.SearchbyValue(20)
+	fmt.Printf("Index of 20: %d\n", index)
+
+	ll.DeletebyIndex(1)
+	fmt.Print("After deleting index 1: ")
+	ll.PrintLinkedList()
+	fmt.Println()
+
+	ll.Deletebyvalue(30)
+	fmt.Print("After deleting value 30: ")
+	ll.PrintLinkedList()
+	fmt.Println()
+
+	ll.DeletebyIndex(0)
+	fmt.Print("After deleting head: ")
+	ll.PrintLinkedList()
+	fmt.Println()
+
+	fmt.Print("Final list: ")
+	ll.PrintLinkedList()
+	fmt.Println()
 }
