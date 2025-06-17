@@ -75,7 +75,7 @@ func isIsomorphic(s string, t string) bool {
 }
 
 func main() {
-	s := "egg"
-	t := "add"
+	s := "paper"
+	t := "title"
 	fmt.Println(isIsomorphic(s, t))
 }
